@@ -16,6 +16,9 @@ from pathlib import Path
 
 FORTUNE = "The deploy you call 'a tiny change' will be the one they write the postmortem about."
 
+# Gate (kit competition.yaml): entry.txt must be UTF-8 text of 1-120
+# characters, a single line, not only whitespace; no trailing newline so the
+# file matches the fortune byte for byte.
 MAX_CHARS = 120
 
 

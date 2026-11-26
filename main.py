@@ -29,14 +29,14 @@ def write_fortune() -> Path:
 
 def check(entry_path: Path) -> None:
     text = entry_path.read_text(encoding="utf-8")
-    if text != FORTUNE:
-        raise SystemExit("entry.txt does not match the fortune")
     if text.strip() != text:
         raise SystemExit("entry.txt has stray whitespace")
-    if not 1 <= len(text) <= MAX_CHARS:
-        raise SystemExit(f"fortune is {len(text)} chars, gate is 1-{MAX_CHARS}")
     if "\n" in text:
         raise SystemExit("fortune must be a single line")
+    if not 1 <= len(text) <= MAX_CHARS:
+        raise SystemExit(f"fortune is {len(text)} chars, gate is 1-{MAX_CHARS}")
+    if text != FORTUNE:
+        raise SystemExit("entry.txt does not match the fortune")
 
 
 def main() -> None:
